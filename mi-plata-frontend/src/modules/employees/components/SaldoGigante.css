@@ -1,0 +1,44 @@
+/* SaldoGigante.css */
+
+.saldo-gigante {
+  gap:var(--space-xs);
+  margin:var(--space-lg) 0;
+  flex-direction:column;
+  display:flex;
+}
+
+.saldo-gigante__etiqueta {
+  display:block;
+}
+
+.saldo-gigante__valor {
+  font-family:var(--font-mono);
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+  font-size:var(--fs-balance);
+  letter-spacing:-.03em;
+  background:var(--grad-brass);
+  color:transparent;
+  filter:drop-shadow(0 0 28px rgba(201, 164, 92, 0.35));
+  -webkit-background-clip:text;
+  background-clip:text;
+  line-height:1;
+}
+
+.saldo-gigante__prefijo {
+  color:var(--text-muted);
+  vertical-align:.62em;
+  margin-right:.12em;
+  font-size:.4em;
+  font-weight:500;
+}
+
+.saldo-gigante__centavos {
+  color:var(--text-muted);
+  font-size:.32em;
+  font-weight:500;
+}
+
+.saldo-gigante--compacto .saldo-gigante__valor {
+  font-size:clamp(2.5rem,5vw,4.5rem);
+}

@@ -1,0 +1,54 @@
+/* Ticker.css */
+
+.ticker {
+  border-top:var(--border);
+  border-bottom:var(--border);
+  padding:var(--space-sm) 0;
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,var(--opaco) 4% 96%,transparent);
+  mask-image:linear-gradient(90deg,transparent,var(--opaco) 4% 96%,transparent);
+}
+
+.ticker__pista {
+  gap:var(--space-xl);
+  width:max-content;
+  animation:38s linear infinite ticker-deslizar;
+  display:flex;
+}
+
+.ticker:hover .ticker__pista {
+  animation-play-state:paused;
+}
+
+.ticker__item {
+  align-items:baseline;
+  gap:var(--space-sm);
+  font-family:var(--font-mono);
+  font-size:var(--fs-xs);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  display:inline-flex;
+}
+
+.ticker__tipo {
+  color:var(--positive);
+}
+
+.ticker__tipo.es-salida {
+  color:var(--danger);
+}
+
+.ticker__fecha {
+  color:var(--text-muted);
+}
+
+@keyframes ticker-deslizar {
+  0%{transform:translate(0)}to{transform:translate(-50%)};
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .ticker__pista {
+    animation:none;
+  }
+}

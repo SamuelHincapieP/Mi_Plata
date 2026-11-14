@@ -1,0 +1,238 @@
+/* base.css — reset, atmósfera V2 y utilidades globales */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('./tokens.css');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ── Atmósfera: viñeta + halos de latón/verde, SIN rejilla ── */
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1100px 720px at 82% -12%, rgba(201, 164, 92, 0.07), transparent 62%),
+    radial-gradient(900px 700px at -12% 108%, rgba(111, 207, 151, 0.05), transparent 58%),
+    linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 18%, var(--bg) 82%, var(--bg-deep) 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Grano fino de papel (SVG propio, se superpone a todo) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em; /* Impekable: tracking tightness en titulares */
+}
+
+/* Números siempre tabulares en mono */
+.mono,
+.monto,
+.saldo,
+.fecha {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Etiquetas: MAYÚSCULAS pequeñas con letter-spacing */
+.etiqueta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Texto con degradado de latón (titulares protagonistas) */
+.texto-bronce {
+  background: var(--grad-brass);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Entradas escalonadas (200–300 ms, ease-out) ── */
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.revelar {
+  animation: revelar 420ms var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes girar-lento {
+  to { transform: rotate(360deg); }
+}
+
+/* Signo de la moneda del emblema de login y registro. */
+.emblema__signo {
+  fill: var(--accent);
+  stroke: none;
+  font-family: var(--font-mono);
+  font-size: 84px;
+  opacity: 0.5;
+}
+
+@keyframes latido {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ── Esqueletos de carga (Emil Kowalski: Layout Shift Zero) ──
+   El brillo viaja de izquierda a derecha; la base nunca desaparece
+   del todo para que la silueta no "salte" al llegar el dato.        */
+@keyframes brillo {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+.esqueleto {
+  position: relative;
+  overflow: hidden;
+  background: var(--esq-base);
+  border-radius: var(--radius-sm);
+}
+
+.esqueleto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, var(--esq-alto), transparent);
+  animation: brillo var(--esq-dur) var(--ease-out) infinite;
+}
+
+.esqueleto--texto {
+  height: 0.85em;
+  margin: 0.35em 0;
+}
+
+.esqueleto--titulo {
+  height: 1.4em;
+  width: 45%;
+}
+
+/* Micro-escala de presión reutilizable */
+.presionable {
+  transition: transform var(--transition), background-color var(--transition),
+    border-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+.presionable:active {
+  transform: var(--press);
+}
+
+/* Accesibilidad */
+.solo-lectura {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Scrollbars discretos */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border: 2px solid var(--bg-deep);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-deep);
+}
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* El esqueleto deja de brillar pero conserva su silueta */
+  .esqueleto::after {
+    animation: none;
+  }
+}

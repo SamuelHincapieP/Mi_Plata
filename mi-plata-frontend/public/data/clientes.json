@@ -1,0 +1,101 @@
+{
+  "clientes": [
+    {
+      "_id": 1,
+      "_identificacion": "1001234567",
+      "_nombreCompleto": "Samuel Hincapie",
+      "_celular": "3001234567",
+      "_usuario": "samuel",
+      "_contrasena": "1234",
+      "_fechaRegistro": "2026-05-27T10:00:00.000Z",
+      "_rol": "cliente",
+      "_intentosFallidos": 0,
+      "_bloqueado": false,
+      "_cuentas": [
+        {
+          "_tipo": "CuentaAhorros",
+          "_numeroCuenta": "AHO-7890",
+          "_fechaApertura": "2026-05-27T10:00:00.000Z",
+          "_estado": "ACTIVA",
+          "_saldo": 3094750,
+          "_movimientos": [
+            { "_id": 1001, "_fechaHora": "2026-05-27T15:00:00.000Z", "_tipo": "CONSIGNACION", "_valor": 500000, "_saldoPosterior": 3000000 },
+            { "_id": 1002, "_fechaHora": "2026-06-10T14:30:00.000Z", "_tipo": "RETIRO", "_valor": 150000, "_saldoPosterior": 2847750 },
+            { "_id": 1003, "_fechaHora": "2026-07-02T16:10:00.000Z", "_tipo": "CONSIGNACION", "_valor": 800000, "_saldoPosterior": 3647750 },
+            { "_id": 1004, "_fechaHora": "2026-08-15T10:45:00.000Z", "_tipo": "RETIRO", "_valor": 200000, "_saldoPosterior": 3444750 },
+            { "_id": 1005, "_fechaHora": "2026-09-01T12:20:00.000Z", "_tipo": "TRANSFERENCIA_OUT", "_valor": 350000, "_saldoPosterior": 3094750 }
+          ]
+        },
+        {
+          "_tipo": "CuentaCorriente",
+          "_numeroCuenta": "CTE-4321",
+          "_fechaApertura": "2026-05-27T10:00:00.000Z",
+          "_estado": "ACTIVA",
+          "_saldo": 2000000,
+          "_movimientos": [
+            { "_id": 1011, "_fechaHora": "2026-05-27T15:05:00.000Z", "_tipo": "CONSIGNACION", "_valor": 300000, "_saldoPosterior": 2100000 },
+            { "_id": 1012, "_fechaHora": "2026-08-20T09:15:00.000Z", "_tipo": "RETIRO", "_valor": 100000, "_saldoPosterior": 2000000 }
+          ]
+        },
+        {
+          "_tipo": "TarjetaCredito",
+          "_numeroCuenta": "TC-8888",
+          "_fechaApertura": "2026-05-27T10:00:00.000Z",
+          "_estado": "ACTIVA",
+          "_cupo": 5000000,
+          "_deuda": 488500,
+          "_movimientos": [
+            { "_id": 1021, "_fechaHora": "2026-09-10T17:00:00.000Z", "_tipo": "COMPRA_TC", "_valor": 480000, "_saldoPosterior": 0 },
+            { "_id": 1022, "_fechaHora": "2026-09-10T17:00:00.000Z", "_tipo": "CUOTA_MANEJO", "_valor": 8500, "_saldoPosterior": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": 2,
+      "_identificacion": "1009876543",
+      "_nombreCompleto": "Maria Garcia",
+      "_celular": "3109876543",
+      "_usuario": "maria",
+      "_contrasena": "abcd",
+      "_fechaRegistro": "2026-05-27T10:00:00.000Z",
+      "_rol": "cliente",
+      "_intentosFallidos": 0,
+      "_bloqueado": false,
+      "_cuentas": [
+        {
+          "_tipo": "CuentaAhorros",
+          "_numeroCuenta": "AHO-002",
+          "_fechaApertura": "2026-05-27T10:00:00.000Z",
+          "_estado": "ACTIVA",
+          "_saldo": 1150000,
+          "_movimientos": [
+            { "_id": 2001, "_fechaHora": "2026-09-01T12:20:00.000Z", "_tipo": "CONSIGNACION", "_valor": 350000, "_saldoPosterior": 1150000 }
+          ]
+        },
+        {
+          "_tipo": "TarjetaCredito",
+          "_numeroCuenta": "TC-002",
+          "_fechaApertura": "2026-05-27T10:00:00.000Z",
+          "_estado": "ACTIVA",
+          "_cupo": 3000000,
+          "_deuda": 0,
+          "_movimientos": []
+        }
+      ]
+    },
+    {
+      "_id": 3,
+      "_identificacion": "4567891234",
+      "_nombreCompleto": "Admin Mi Plata",
+      "_celular": "3009998877",
+      "_usuario": "admin",
+      "_contrasena": "admin123",
+      "_fechaRegistro": "2026-05-27T10:00:00.000Z",
+      "_rol": "admin",
+      "_intentosFallidos": 0,
+      "_bloqueado": false,
+      "_cuentas": []
+    }
+  ]
+}

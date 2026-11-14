@@ -1,0 +1,144 @@
+/* FinancialPulse.css */
+
+.pulse {
+  background:var(--surface);
+  border:var(--border);
+  border-radius:var(--radius);
+  padding:var(--space-lg);
+}
+
+.pulse--vacio {
+  color:var(--text-muted);
+  font-size:var(--fs-sm);
+  gap:var(--space-sm);
+  flex-direction:column;
+  display:flex;
+  align-items:flex-start;
+}
+
+/* Estado vacío con trazo plano: insinúa la gráfica sin fingir datos */
+.pulse__vacio-arte {
+  width:100%;
+  max-width:220px;
+  height:auto;
+  color:var(--accent);
+  opacity:.5;
+  margin:var(--space-sm) 0;
+}
+
+.pulse__subtitulo {
+  color:var(--text-muted);
+  font-size:var(--fs-sm);
+}
+
+.pulse__lienzo {
+  position:relative;
+}
+
+.pulse__svg {
+  width:100%;
+  height:auto;
+  display:block;
+  overflow:visible;
+}
+
+.pulse__svg circle {
+  cursor:pointer;
+  transition:r .15s;
+}
+
+.pulse__linea {
+  stroke-dasharray:2000;
+  stroke-dashoffset:2000px;
+  animation:1.2s forwards pulso-trazar;
+}
+
+.pulse__area {
+  animation:1s .6s both pulso-fundido;
+}
+
+@keyframes pulso-trazar {
+  to{stroke-dashoffset:0};
+}
+
+@keyframes pulso-fundido {
+  0%{opacity:0}to{opacity:1};
+}
+
+.pulse__tooltip {
+  background:var(--surface-2);
+  border:1px solid var(--accent);
+  border-radius:var(--radius);
+  font-family:var(--font-mono);
+  font-size:var(--fs-xs);
+  pointer-events:none;
+  white-space:nowrap;
+  z-index:5;
+  flex-direction:column;
+  gap:2px;
+  padding:6px 10px;
+  display:flex;
+  position:absolute;
+  transform:translate(-50%,-130%);
+}
+
+.pulse__tooltip span {
+  color:var(--text-muted);
+}
+
+.pulse__pies {
+  margin-top:var(--space-sm);
+  font-family:var(--font-mono);
+  font-size:var(--fs-xs);
+  color:var(--text-muted);
+  justify-content:space-between;
+  display:flex;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .pulse__linea {
+    stroke-dashoffset:0;
+    animation:none;
+  }
+
+  .pulse__area {
+    animation:none;
+  }
+}
+
+/* Aviso de dinero apartado (bolsillos y metas) y desglose del total */
+.pulse__tooltip-aviso {
+  display:block;
+  margin-top:2px;
+  color:var(--accent) !important;
+  white-space:normal;
+  max-width:220px;
+}
+
+.pulse__nota {
+  margin:var(--space-sm) 0 0;
+  font-size:var(--fs-xs);
+  color:var(--text-muted);
+}
+
+.pulse__desglose {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
+  gap:var(--space-sm);
+  margin:var(--space-md) 0 0;
+  padding-top:var(--space-md);
+  border-top:1px solid var(--line);
+}
+
+.pulse__desglose > div { display:flex; flex-direction:column; gap:2px; }
+
+.pulse__desglose dt {
+  font-family:var(--font-mono);
+  font-size:var(--fs-xs);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+
+.pulse__desglose dd { margin:0; font-family:var(--font-mono); font-size:var(--fs-sm); }
+.pulse__desglose-total dd { color:var(--accent); font-weight:700; }

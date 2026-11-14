@@ -1,0 +1,68 @@
+/* Estilos de Resumen de transferencias, compras con TC y metas de ahorro */
+.resumen { margin-top: var(--space-xl); }
+.resumen__titulo { font-size: var(--fs-lg); margin: 0 0 var(--space-xs); }
+
+.resumen__kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-md) 0;
+}
+.resumen__kpis > div {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--space-md);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.resumen__kpis span { color: var(--text-muted); font-size: var(--fs-sm); }
+.resumen__kpis strong { font-family: var(--font-mono); font-size: var(--fs-lg); }
+
+.resumen__lista { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-md); }
+.resumen__item {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+}
+.resumen__item--recibida { border-left-color: var(--success, #6fcf97); }
+
+.resumen__cabecera { display: flex; justify-content: space-between; align-items: center; gap: var(--space-md); }
+.resumen__sentido {
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);
+}
+.resumen__monto { font-family: var(--font-mono); font-size: var(--fs-md); }
+.resumen__persona { margin: 0; color: var(--text-muted); font-size: var(--fs-sm); }
+.resumen__mensaje {
+  margin: 0; padding: 8px 12px;
+  background: var(--surface-2);
+  border-radius: 8px;
+  font-style: italic;
+}
+.resumen__fecha { font-size: var(--fs-xs); color: var(--text-muted); }
+
+.meta__barra {
+  height: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.meta__relleno {
+  height: 100%;
+  background: var(--grad-brass);
+  transition: width var(--transition);
+}
+
+/* Fila de acciones de un bolsillo o de una meta: monto + botones */
+.apartado__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+.apartado__acciones .campo__control { flex: 1 1 130px; min-width: 110px; }

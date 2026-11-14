@@ -1,0 +1,353 @@
+/* admin.css — Panel administrador */
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* ── Métricas ────────────────────────────────────────── */
+.admin__metricas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.admin__metrica {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 70%);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2), var(--bise-superior);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.admin__metrica:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-3), var(--glow-accent), var(--bise-superior);
+}
+
+.admin__metrica-valor {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-xl);
+}
+
+/* ── Formularios ─────────────────────────────────────── */
+.admin__form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0 var(--space-md);
+  align-items: end;
+}
+
+.admin__form-accion {
+  grid-column: 1 / -1;
+}
+
+/* ── Filtros ─────────────────────────────────────────── */
+.admin__filtros {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.admin__filtros-pie {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-md);
+}
+
+/* ── Tabla densa ─────────────────────────────────────── */
+.admin__tabla-envoltura {
+  overflow-x: auto;
+}
+
+.admin__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.admin__tabla th {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.admin__tabla td {
+  padding: var(--space-md);
+  border-bottom: var(--border);
+  vertical-align: top;
+}
+
+.admin__tabla tbody tr:hover {
+  background: var(--surface);
+}
+
+.admin__fila-bloqueada {
+  opacity: 0.65;
+}
+
+.admin__nombre {
+  display: block;
+  font-weight: 600;
+}
+
+.admin__sub {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.admin__clave {
+  color: var(--text-muted);
+}
+
+.admin__productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* ── Listado en tarjetas: todo visible, sin desplazar ── */
+.admin__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+  gap: var(--space-lg);
+}
+
+.admin__tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 70%);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2), var(--bise-superior);
+  min-width: 0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.admin__tarjeta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift), var(--bise-superior);
+}
+
+.admin__tarjeta--bloqueada {
+  opacity: 0.7;
+  border-top-color: var(--danger);
+}
+
+.admin__tarjeta-cab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.admin__tarjeta-titulo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin__tarjeta-titulo .admin__nombre {
+  font-size: var(--fs-md);
+  overflow-wrap: anywhere;
+}
+
+.admin__avatar {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--grad-brass);
+  color: var(--on-accent);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: var(--fs-lg);
+}
+
+/* Datos en rejilla de dos columnas (etiqueta arriba, valor abajo) */
+.admin__datos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin: 0;
+}
+
+.admin__datos > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.admin__datos > .admin__datos-ancho {
+  grid-column: 1 / -1;
+}
+
+.admin__datos dt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.admin__datos dd {
+  margin: 0;
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+}
+
+.admin__saldo {
+  font-size: var(--fs-md);
+  color: var(--accent-2);
+}
+
+/* Acciones: siempre visibles en una fila que se ajusta al ancho */
+.admin__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: var(--border);
+}
+
+.admin__acciones .boton {
+  flex: 1 1 auto;
+  justify-content: center;
+  padding: 8px 12px;
+  font-size: var(--fs-sm);
+}
+
+.admin__accion-peligro {
+  color: var(--danger);
+}
+.admin__accion-peligro:hover {
+  background: var(--danger);
+  color: var(--bg);
+}
+
+/* ── Chips ───────────────────────────────────────────── */
+.admin__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .admin__metricas {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin__form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin__filtros {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .admin__metricas {
+    grid-template-columns: 1fr;
+  }
+
+  .admin__form {
+    grid-template-columns: 1fr;
+  }
+
+  .admin__filtros {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Confirmación de acciones sensibles ─────────────── */
+.admin__confirmacion {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(5, 11, 9, 0.45);
+}
+
+.admin__confirmacion-avatar {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--grad-brass);
+  color: var(--bg);
+  font-family: var(--font-title);
+  font-weight: 700;
+}
+
+.admin__confirmacion-nombre {
+  font-weight: 600;
+}
+
+.admin__confirmacion-dato {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* ── Elección de cuentas al crear un cliente ─────────── */
+.admin__productos {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  border: none;
+}
+
+.admin__productos legend {
+  padding: 0;
+  margin-bottom: var(--space-sm);
+}
+
+.admin__casilla {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 10px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: var(--fs-sm);
+}
+
+.admin__casilla--activa {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}

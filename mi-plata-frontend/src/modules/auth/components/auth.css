@@ -1,0 +1,229 @@
+/* auth.css — Login y registro (pantalla dividida, firma #7). */
+
+.auth {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ── Mitad de marca ──────────────────────────────────── */
+.marca-panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(700px 520px at 30% 40%, rgba(201, 164, 92, 0.10), transparent 65%),
+    linear-gradient(160deg, var(--bg-deep), var(--bg) 55%, var(--surface));
+  box-shadow: inset -1px 0 0 var(--line);
+  display: flex;
+  align-items: center;
+  padding: var(--space-3xl);
+}
+
+.marca-panel__patron {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  pointer-events: none;
+  animation: girar-lento 160s linear infinite;
+  filter: drop-shadow(0 0 50px rgba(201, 164, 92, 0.16));
+}
+
+.marca-panel__contenido {
+  position: relative;
+  max-width: 420px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-title);
+  font-size: var(--fs-lg);
+  color: var(--text);
+}
+.logo strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.marca-panel__titulo {
+  margin-top: var(--space-xl);
+  font-size: var(--fs-2xl);
+}
+
+.marca-panel__texto {
+  margin-top: var(--space-md);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+.marca-panel__seguridad {
+  list-style: none;
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.marca-panel__seguridad li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  padding-bottom: var(--space-sm);
+  border-bottom: var(--border);
+}
+
+.marca-panel__seguridad svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.marca-panel__pie {
+  margin-top: var(--space-xl);
+}
+
+/* ── Mitad del formulario ────────────────────────────── */
+.auth__form-lado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl);
+  background: linear-gradient(180deg, rgba(5, 11, 9, 0.4), transparent 40%);
+}
+
+.auth__form {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth__cabecera {
+  margin-bottom: var(--space-lg);
+}
+
+.auth__titulo {
+  font-size: var(--fs-xl);
+  margin-top: var(--space-sm);
+}
+
+.auth__subtitulo {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  margin-top: var(--space-xs);
+}
+
+/* Indicador de seguridad + intentos */
+.auth__indicador {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: rgba(5, 11, 9, 0.55);
+  box-shadow: var(--shadow-1);
+  margin-bottom: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* El contador de intentos es un <Badge tono="aviso|peligro"> (ui.css). */
+
+/* Campo con botón de ojo */
+.campo__con-ojo {
+  position: relative;
+}
+.campo__con-ojo .campo__control {
+  padding-right: 48px;
+}
+.campo__ojo {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 8px;
+  display: grid;
+  place-items: center;
+  transition: color var(--transition);
+}
+.campo__ojo:hover {
+  color: var(--accent);
+}
+
+.campo__ojo:active {
+  transform: translateY(-50%) var(--press);
+}
+
+.auth__pie {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: var(--border);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-align: center;
+}
+.auth__pie a {
+  color: var(--accent);
+  font-weight: 600;
+}
+.auth__pie a:hover {
+  text-decoration: underline;
+}
+.auth__pie--sin-borde {
+  border-top: none;
+  padding-top: 0;
+  margin-top: var(--space-sm);
+}
+
+/* Casillas de productos (registro) */
+.registro__productos {
+  display: grid;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+/* ── Móvil: apilar ───────────────────────────────────── */
+@media (max-width: 900px) {
+  .auth {
+    grid-template-columns: 1fr;
+  }
+
+  .marca-panel {
+    border-right: none;
+    border-bottom: var(--border);
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .marca-panel__patron {
+    width: 90%;
+    height: 160%;
+    left: 30%;
+  }
+
+  .marca-panel__titulo {
+    font-size: var(--fs-xl);
+  }
+
+  .marca-panel__seguridad {
+    display: none;
+  }
+
+  .marca-panel__pie {
+    margin-top: var(--space-md);
+  }
+
+  .auth__form-lado {
+    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+    background: var(--bg);
+  }
+}

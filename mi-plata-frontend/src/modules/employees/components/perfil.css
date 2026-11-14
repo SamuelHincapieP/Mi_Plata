@@ -1,0 +1,116 @@
+/* perfil.css — Mi perfil (dos columnas) */
+
+.perfil {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* ── Datos ───────────────────────────────────────────── */
+.perfil__cabecera {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.perfil__avatar {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 50%;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: var(--fs-xl);
+}
+
+.perfil__lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: var(--border);
+}
+
+.perfil__lista > div {
+  padding: var(--space-md) 0;
+  border-bottom: var(--border);
+}
+
+.perfil__lista dt {
+  margin-bottom: var(--space-xs);
+}
+
+.perfil__lista dd {
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+}
+
+/* ── Productos ───────────────────────────────────────── */
+.perfil__productos {
+  margin-top: var(--space-lg);
+}
+
+.perfil__productos ul {
+  list-style: none;
+  margin-top: var(--space-sm);
+}
+
+.perfil__productos li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: var(--border);
+  font-size: var(--fs-sm);
+}
+
+.perfil__productos li svg {
+  color: var(--accent);
+}
+
+.perfil__productos li .mono {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+}
+
+/* Aviso en línea cuando no hay productos (no es un <li> de producto) */
+.perfil__sin-productos {
+  color: var(--text-muted);
+  border-bottom: none !important;
+}
+
+/* ── Seguridad ───────────────────────────────────────── */
+.perfil__seguridad {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.perfil__estado {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.perfil__estado strong {
+  color: var(--text);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .perfil {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil__lista {
+    grid-template-columns: 1fr;
+  }
+}

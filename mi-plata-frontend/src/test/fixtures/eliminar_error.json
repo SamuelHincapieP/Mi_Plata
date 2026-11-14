@@ -1,0 +1,1 @@
+{"status":400,"body":{"ok":false,"error":"No se puede eliminar: el cliente tiene 6 movimientos relacionados."}}

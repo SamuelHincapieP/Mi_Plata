@@ -1,0 +1,108 @@
+/* tokens.css — ÚNICA fuente de color y movimiento del proyecto (V2 "Ledger Noir").
+   Nada de hexadecimales fuera de este archivo. */
+
+:root {
+  /* ── Color: base ── */
+  --bg-deep: #050B09;          /* fondo profundo (viñeta, bordes de página) */
+  --bg: #0A1411;               /* fondo principal */
+  --surface: #12211C;          /* superficie (clara para separarse del bg) */
+  --surface-2: #1A3029;        /* superficie elevada */
+  --surface-3: #233D34;        /* hover / presionado */
+
+  /* ── Color: líneas y texto ── */
+  --line: rgba(243, 239, 230, 0.08);
+  --line-strong: rgba(243, 239, 230, 0.20);
+  --text: #F3EFE6;
+  --text-muted: #93A89E;       /* un punto más claro → contraste AA */
+
+  /* ── Color: latón (brillo completo) ── */
+  --accent: #C9A45C;
+  --accent-hover: #D9B976;
+  --accent-2: #EDDCB4;         /* latón claro: brillos, degradados */
+  --accent-deep: #A67C3B;      /* latón oscuro: profundidad */
+  --grad-brass: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 48%, var(--accent-deep) 100%);
+  --glow-accent: 0 0 56px -18px rgba(201, 164, 92, 0.55);
+
+  /* ── Color: semántica ── */
+  --positive: #6FCF97;
+  --danger: #E5646A;
+  --warning: #E8B04A;
+  --overlay: rgba(4, 9, 7, 0.78);
+
+  /* ── Vidrio controlado (solo barras flotantes: topbar y barra inferior) ── */
+  --glass-bg: rgba(10, 20, 17, 0.72);
+  --glass-line: rgba(243, 239, 230, 0.10);
+  --glass-blur: blur(14px) saturate(140%);
+
+  /* Texto sobre relleno de latón (debe ser el más oscuro del sistema) */
+  --on-accent: #14100A;
+  /* Fondo más profundo que --surface, para remates de degradado */
+  --surface-hundido: #0D1A16;
+  /* Opaco para máscaras de desvanecido (ticker); no es un color visible */
+  --opaco: #000000;
+
+  /* ── Esqueletos de carga (Layout Shift Zero) ── */
+  --esq-base: rgba(243, 239, 230, 0.05);
+  --esq-alto: rgba(243, 239, 230, 0.10);
+  --esq-borde: rgba(243, 239, 230, 0.06);
+  --esq-dur: 1400ms;
+
+  /* ── Sombras (profundidad real, sombras cortas) ── */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.40);
+  --shadow-2: 0 6px 20px -8px rgba(0, 0, 0, 0.55);
+  --shadow-3: 0 28px 64px -28px rgba(0, 0, 0, 0.70);
+  --shadow-lift: 0 18px 40px -20px rgba(0, 0, 0, 0.75);   /* hover de tarjeta */
+  --shadow-press: 0 2px 6px -2px rgba(0, 0, 0, 0.45);      /* :active */
+  --bise-superior: inset 0 1px 0 rgba(243, 239, 230, 0.05); /* luz superior interna */
+
+  /* ── Tipografía ── */
+  --font-title: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Consolas", monospace;
+  --font-body: "Space Grotesk", "Segoe UI", sans-serif;
+
+  /* Escala tipográfica */
+  --fs-xs: 0.75rem;    /* 12px — etiquetas */
+  --fs-sm: 0.875rem;   /* 14px — texto secundario */
+  --fs-md: 1rem;       /* 16px — texto base */
+  --fs-lg: 1.25rem;    /* 20px — títulos de tarjeta */
+  --fs-xl: 1.75rem;    /* 28px — títulos de sección */
+  --fs-2xl: 2.5rem;    /* 40px — títulos de página */
+  --fs-3xl: clamp(2.5rem, 5vw, 3.75rem); /* hero 40–60px */
+  --fs-balance: clamp(3.25rem, 9vw, 8.25rem); /* saldo gigante */
+
+  /* ── Espaciado (rejilla de 8px) ── */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* ── Forma ── */
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --border: 1px solid var(--line);
+
+  /* ── Movimiento ──────────────────────────────────────────
+     Curva única ease-out de Emil Kowalski: entra rápido, sale largo.
+     150ms micro · 180ms estándar · 300ms capas (modal/drawer).      */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-rapida: 150ms var(--ease-out);
+  --transition: 180ms var(--ease-out);
+  --transition-media: 300ms var(--ease-out);
+
+  /* Micro-escala de presión: feedback táctil en todo lo clicable */
+  --press: scale(0.98);
+  --press-fuerte: scale(0.97);
+
+  /* ── Layout ── */
+  --nav-width: 88px;        /* rail de iconos (< 1280px) */
+  --nav-width-rail: 240px;  /* rail con etiquetas (>= 1280px) */
+  --content-max: 1200px;
+  --topbar-h: 68px;
+  --bottomnav-h: 64px;
+}
