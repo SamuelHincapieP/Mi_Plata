@@ -1,0 +1,13 @@
+# Dependencias y artefactos generados
+**/node_modules/
+**/target/
+**/dist/
+**/__pycache__/
+*.pyc
+.venv/
+
+# Archivos locales de IDE y sistema
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
